@@ -1,0 +1,108 @@
+@media (max-width: 800px) {
+
+    :root { --clr-primary-light: rgb(80, 56, 94); }
+
+    /* disable tabel view */
+
+    body { display: block; }
+
+    /* styling inputs */
+
+    [data-new-task-form] { font-size: 19px; }
+
+    form {
+        font-size: 20px;
+        background: var(--clr-light);
+        color: var(--clr-primary);
+        position: fixed;
+        width: calc(100% - 2em);
+        bottom: 0;
+        left: 0;
+        padding: .2em 1em;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        z-index: 100;
+    }
+
+    .new { width: 85%; }
+
+    .new::-webkit-input-placeholder { opacity: 1; }
+    .new:-ms-input-placeholder { opacity: 1; }
+
+    /* styling tasks list */
+
+    .task-list li {
+        list-style: none;
+        list-style-position: inside;
+        background: var(--clr-primary-light);
+        margin-bottom: 1em;
+        padding: .5em 1em;
+        border-radius: 1em;
+    }
+
+    .all-tasks {
+        padding: 0 1em;
+        padding-bottom: 2em;
+    }
+
+    .task-list { padding: 0 !important; }
+
+    /* styling todo list */
+
+    .todo-list {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding-bottom: 1.7em;
+    }
+
+    .tasks { padding: 0 1em; }
+
+    .todo-body {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: start;
+        padding: 0;
+        height: calc(100vh - 6.1em);
+    }
+
+    .tasks {
+        overflow-y: scroll;
+        padding-top: 1em;
+    }
+
+    .delete-stuff {
+        position: initial;
+        padding: .5em 0;
+        background: var(--clr-light);
+    }
+
+    .delete-stuff button {
+        background: var(--clr-primary-light) !important;
+        opacity: 1 !important;
+        padding: .5em;
+        border-radius: 1em;
+    }
+
+    .delete-stuff button { margin-left: 1em; }
+    .delete-stuff :last-child { margin-right: 1em; }
+
+    .task:last-child { margin: 0; }
+
+    /* style for language switcher */
+
+    [language-selector] {
+        position: absolute;
+        bottom: initial;
+        right: 0;
+        top: 0;
+    }
+    
+}
+
+@media (max-width: 400px) {
+    [language-selector] :first-child {
+        display: none;
+    }
+}
