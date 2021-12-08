@@ -1,7 +1,5 @@
 @media (max-width: 800px) {
 
-    :root { --clr-primary-light: rgb(80, 56, 94); }
-
     /* disable tabel view */
 
     body { display: block; }
@@ -12,8 +10,8 @@
 
     form {
         font-size: 20px;
-        background: var(--clr-light);
-        color: var(--clr-primary);
+        background: var(--clr-font);
+        color: var(--clr-back);
         position: fixed;
         width: calc(100% - 2em);
         bottom: 0;
@@ -22,7 +20,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: row-reverse;
-        z-index: 100;
+        z-index: 50;
     }
 
     .new { width: 85%; }
@@ -35,7 +33,7 @@
     .task-list li {
         list-style: none;
         list-style-position: inside;
-        background: var(--clr-primary-light);
+        background: var(--clr-front);
         margin-bottom: 1em;
         padding: .5em 1em;
         border-radius: 1em;
@@ -75,11 +73,10 @@
     .delete-stuff {
         position: initial;
         padding: .5em 0;
-        background: var(--clr-light);
     }
 
     .delete-stuff button {
-        background: var(--clr-primary-light) !important;
+        background: var(--clr-front) !important;
         opacity: 1 !important;
         padding: .5em;
         border-radius: 1em;
@@ -93,16 +90,108 @@
     /* style for language switcher */
 
     [language-selector] {
-        position: absolute;
+        position: fixed;
         bottom: initial;
+        top: 42%;
+        z-index: 121;
+        left: 50%;
+        margin: 0;
+        transform: translateX(-50%);
+    }
+
+    [language-selector] :first-child {
+        display: none;
+    }
+
+    .setting {
+        position: fixed;
+        width: 80%;
+        height: 45%;
+        left: 10%;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 1.5rem;
+        border: 3px solid var(--clr-font);
+        background: var(--clr-back);
+        z-index: 120;
+    }
+
+    .back {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        background: rgba(0, 0, 0, .5);
+        z-index: 90;
+    }
+
+    .setting h2{
+        text-align: center;
+    }
+
+    .setting button {
+        position: absolute;
+        background: var(--clr-front);
+        padding: .5em 1em;
+        border-radius: 1.5rem;
+        right: 0;
+        bottom: 0;
+        margin: 1em;
+    }
+    
+    .setting, .back {
+        display: initial;
+    }
+    .setting-container {
+        display: none;
+    }
+
+    [theme-selector] {
+        display: flex;
+        top: 56%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 150;
+        height: 0;
+    }
+
+    .theme {
+        margin: 0;
+    }
+
+    
+    .theme:not(:last-child) {
+        margin-right: .5em;
+    }
+
+    [settings-open] {
+        width: 2.3rem;
+        height: 2.3rem;
+        position: fixed;
+        padding: .2em;
+        border: .165em solid var(--clr-font);
+        color: var(--clr-font);
+        border-radius: .55em;
         right: 0;
         top: 0;
+        margin: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .line {
+        width: 80%;
+        height: 3px;
+        margin: 0 auto;
+        background: var(--clr-font);
     }
     
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
     [language-selector] :first-child {
         display: none;
     }
-}
+} */

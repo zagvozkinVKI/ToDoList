@@ -1,0 +1,57 @@
+/* Константы цветов*/
+
+:root {
+  
+  --clr-back: rgb(55, 38, 64);
+  --clr-front: rgb(80, 56, 94);
+  --clr-font: #f4f4f4;
+  --clr-hover: rgb(210, 173, 231);
+}
+
+/* region: dark */
+
+:root[theme="dark"] {
+  
+  --clr-back: rgb(36, 36, 36);
+  --clr-front: rgb(71, 71, 71);
+  --clr-font: #f4f4f4;
+  --clr-hover: rgb(139, 139, 139);
+}
+
+/* #endregion */
+
+/* region: light */
+
+:root[theme="light"] {
+  
+  --clr-back: #f4f4f4;
+  --clr-front: rgb(231, 230, 230);
+  --clr-font: #919191;
+  --clr-hover: rgb(90, 90, 90);
+}
+
+/* #endregion */
+
+/* region: green */
+
+:root[theme="green"] {
+  
+  --clr-back: rgb(66, 116, 69);
+  --clr-front: rgb(96, 148, 100);
+  --clr-font: #f4f4f4;
+  --clr-hover: rgb(142, 194, 146);
+}
+
+/* #endregion */
+
+/* region: blue */
+
+:root[theme="blue"] {
+  
+  --clr-back: rgb(65, 81, 155);;
+  --clr-front: rgb(97, 113, 180);
+  --clr-font: #f4f4f4;
+  --clr-hover: rgb(154, 164, 207);
+}
+
+  /* #endregion */

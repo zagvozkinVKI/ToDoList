@@ -1,18 +1,11 @@
-:root {
-  --clr-primary: rgb(55, 38, 64);
-  --clr-light: #f4f4f4;
-  --clr-dark: #333;
-  --clr-warning: rgb(99, 36, 36);
-} /* Константы цветов*/
-
  /* Параметры для всей страницы*/
 body { 
   margin: 0;
   font-family: "Work Sans", sans-serif;
   font-weight: 300;
   font-size: 1.5rem;
-  background-color: var(--clr-primary);
-  color: var(--clr-light);
+  background-color: var(--clr-back);
+  color: var(--clr-font);
   display: grid;
   grid: "a a a a" auto "...... lists  active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
 }
@@ -68,7 +61,7 @@ form {
 }
 
 .btn.delete:hover {
-  color: var(--clr-warning);
+  color: var(--clr-hover);
 }
 
 .new {
@@ -112,12 +105,11 @@ form {
 .todo-list {
   --spacer: 2rem; 
   grid-area: active;
-  color: var(--clr-dark);
 }
 
 .todo-header {
   padding: var(--spacer);
-  background: #e4e4e4;
+  background: var(--clr-front);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -139,13 +131,10 @@ form {
 }
 
 .todo-body {
-  background: var(--clr-light);
+  background: var(--clr-font);
+  color: var(--clr-back);
   padding: var(--spacer);
   position: relative;
-}
-
-.new-task-creator .create {
-  color: var(--clr-primary);
 }
 
 /*Параметры кнопкок удаления*/
@@ -156,7 +145,7 @@ form {
   width: 100%;
   left: 0;
   bottom: -65px;
-  color: #e4e8e8;
+  color: var(--clr-font);
 } 
 
 /*Начало важной херни для перечёркивания задач*/
@@ -207,12 +196,12 @@ form {
 [type="checkbox"]:focus + label .custom-checkbox {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
-  color: var(--clr-primary);
+  color: var(--clr-back);
 }
 
 [type="checkbox"]:checked + label .custom-checkbox {
-  background: var(--clr-primary);
-  border-color: var(--clr-primary);
+  background: var(--clr-back);
+  border-color: var(--clr-back);
   box-shadow: inset 0 0 0px 2px white;
 }
 
@@ -250,7 +239,8 @@ form {
 [language-selector] {
   position: fixed;
   padding: 0 1em;
-  border: .2em solid var(--clr-light);
+  border: .2em solid var(--clr-font);
+  color: var(--clr-font);
   border-radius: 1em;
   font-size: .75em;
   bottom: 0;
@@ -263,11 +253,34 @@ form {
 }
 
 [language-selector]:hover {
-  background: var(--clr-light);
+  background: var(--clr-font);
 }
 
 [language-selector]:hover p {
-  color: var(--clr-primary);
+  color: var(--clr-back);
 }
 
 /* Конец переключателя языка */
+
+.setting, .back {
+  display: none;
+}
+
+.theme{
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: .1em solid var(--clr-font);
+  margin: .5em 1em;
+}
+
+[theme-selector] {
+  position: fixed;
+  bottom: 4em;
+}
+
+#default { background: rgb(80, 56, 94); }
+#dark { background: rgb(61, 61, 61); }
+#light { background: rgb(170, 170, 170); }
+#green { background: rgb(96, 148, 100); }
+#blue { background: rgb(118, 134, 202); }

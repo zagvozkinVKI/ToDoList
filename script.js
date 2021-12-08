@@ -15,6 +15,9 @@ const languageSelector = document.querySelector('[language-selector]')
 const htmlNode = document.querySelector('html')
 const taskListTitle = document.querySelector('.task-list-title')
 const taskCountContainer = document.querySelector('.task-count-container')
+const settingsCloseButton = document.querySelector('[settings-close]')
+const settingsOpenButton = document.querySelector('[settings-open]')
+const settingsContainer = document.querySelector('.setting-container')
 
 const LANGUAGE_PACK_RU = [
   'Листы',
@@ -26,7 +29,9 @@ const LANGUAGE_PACK_RU = [
   'Удалить лист',
   'Закрыть лист',
   'Switch to',
-  'English'
+  'English',
+  'Настройки',
+  'Закрыть'
 ]
 const LANGUAGE_PACK_EN = [
   'Lists',
@@ -38,7 +43,9 @@ const LANGUAGE_PACK_EN = [
   'Remove list',
   'Close list',
   'Переключиться на',
-  'Русский'
+  'Русский',
+  'Settings',
+  'Close'
 ]
 
 const LOCAL_STORAGE_LANG_KEY = 'language'
@@ -52,6 +59,14 @@ languageSelector.addEventListener('click', e => {
   localStorage.setItem(LOCAL_STORAGE_LANG_KEY, lang)
   htmlNode.setAttribute('lang', lang)
   renderLanguage()
+})
+
+settingsOpenButton.addEventListener('click', e => {
+  settingsContainer.style.display = 'initial';
+})
+
+settingsCloseButton.addEventListener('click', e => {
+  settingsContainer.style.display = 'none';
 })
 
 closeListButton.addEventListener('click', e => {
@@ -144,12 +159,18 @@ function renderLanguage() {
   closeListButton.innerText = lang_pack[7]
   languageSelector.querySelector(':first-child').innerHTML = lang_pack[8]
   languageSelector.querySelector(':last-child').innerHTML = lang_pack[9]
+  document.querySelector('.setting h2').innerText = lang_pack[10]
+  document.querySelector('[settings-close]').innerText = lang_pack[11]
 }
 
 function render() { //Отображает выбранный лист
 
   htmlNode.setAttribute('lang', localStorage.getItem(LOCAL_STORAGE_LANG_KEY))
   renderLanguage();
+
+  let themeName = localStorage.getItem('theme')
+  if (localStorage.getItem('theme') != null)
+    htmlNode.setAttribute('theme', themeName)
 
   clearElement(listsContainer)
   renderLists()
@@ -210,3 +231,11 @@ function clearElement(element) { //Вызывается другими функ�
     element.removeChild(element.firstChild)
   }
 }
+
+document.querySelectorAll('.theme').forEach(theme => {
+  theme.addEventListener('click', e => {
+    let themeName = e.srcElement.getAttribute('id')
+    htmlNode.setAttribute('theme', themeName)
+    localStorage.setItem('theme', themeName)
+  })
+})

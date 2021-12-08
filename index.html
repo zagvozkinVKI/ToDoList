@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" theme="default">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="theme.css" />
     <link rel="stylesheet" href="main.css" />
     <link rel="stylesheet" href="adaptive.css" />
     <script defer src="script.js"></script>
@@ -16,11 +17,29 @@
   </head>
 
   <body>
-    <div language-selector>
-      <p>Switch to</h2>
-      <p>English</h2>
+    <div class="setting-container">
+      <div language-selector>
+        <p>Switch to</p>
+        <p>English</p>
+      </div>
+      <div theme-selector>
+        <div class="theme" id="default"></div>
+        <div class="theme" id="dark"></div>
+        <div class="theme" id="light"></div>
+        <div class="theme" id="green"></div>
+        <div class="theme" id="blue"></div>
+      </div>
+      <div class="back"></div>
+      <div class="setting">
+        <h2>Настройки</h2>
+        <button class="btn delete" settings-close>Закрыть</button>
+      </div>
     </div>
-
+    <div settings-open>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
     <div class="all-tasks">
       <h2 class="task-list-title">Листы</h2>
       <ul class="task-list" data-lists></ul>
